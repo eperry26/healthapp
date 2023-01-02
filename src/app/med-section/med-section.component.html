@@ -1,0 +1,29 @@
+<h3>Medication Reminders</h3>
+<div class="container">
+    <table>
+        <th>Check</th>
+        <th>Medication</th>
+        <th>Type</th>
+        <th>Dosage</th>
+        <tr *ngFor="let med of medList">
+            <input type="checkbox">
+            <td>{{ med.medName }}</td>
+            <td>{{ med.medDeliveryMethod }}</td>
+            <td>{{ med.dose }} {{med.dosageUnits}}</td>
+        </tr>
+    </table>
+    <!-- <button (click)="addMed('Allegra')">Add Medication</button> -->
+    <form id="enterMed">
+        Medication Name: <br>
+        <input type="text" name="medName" #medName>
+        <br> Delivery Method (ex: pill, inhaler, injection, etc.): <br>
+        <input type="text" name="medDeliveryMethod" #medDeliveryMethod>
+        <br> Dosage of Medication: <br>
+        <input type="text" name="dose" #dose>
+        <br> Dosage Units: <br>
+        <input type="text" name="dosageUnits" #dosageUnits>
+    </form>
+    <!-- once button is clicked, then the addMed method should receive the user entered values-->
+    <button type="button" form="enterMed" (click)="addMed(medName.value, medDeliveryMethod.value, dose.value, dosageUnits.value)"
+    >Add Medication</button>
+</div>
