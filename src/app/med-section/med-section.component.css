@@ -8,8 +8,25 @@ h3 {
     text-align: center;
 }
 
-div {
+.container {
     outline: auto;
     outline-style: dotted;
     font-size: larger;
+    padding-bottom: 3%;
+}
+
+.addbtn {
+    background-color: aquamarine;
+}
+
+.deletebtn {
+    color: red;
+    float: right;
+}
+
+.containerRem {
+    outline: auto;
+    outline-style: dotted;
+    font-size: larger;
+    padding-bottom: 3%;
 }
