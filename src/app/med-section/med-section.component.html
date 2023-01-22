@@ -7,7 +7,7 @@
         <th>Type</th>
         <th>Dosage</th>
         <tr *ngFor="let med of medList; let i=index">
-            <input type="checkbox" name="medCheck" #medCheck>
+            <input type="checkbox" name="medCheck" #medCheck (click)="medDone(i,medCheck)">
             <td> {{ med.medName }}</td>
             <td>{{ med.medDeliveryMethod }}</td>
             <td>{{ med.dose }} {{med.dosageUnits}}</td>
@@ -37,7 +37,7 @@
     <table>
         <th>Medication</th>
         <tr *ngFor="let med of medList; let i=index">
-            <td> {{ med.medName }} <button (click)="removeMed(med.medName)">Remove</button></td>
+            <td> {{ med.medName }} <button class="deletebtn" (click)="removeMed(med.id)">Remove</button></td>
         </tr>
     </table>
     <button class="backBtn" (click)="backBtnClicked()">Go Back to Reminders</button>
