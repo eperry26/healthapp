@@ -14,21 +14,22 @@
         </tr>
     </table>
 
-    <form id="enterMed">
+    <form
+    [formGroup]="medForm"
+    (ngSubmit)="handleSubmit()">
+    <!-- ngSubmit will call the handleSubmit() method when the addbtn is clicked (when the form is submitted) -->
         *Medication Name: <br>
-        <input type="text" name="medName" #medName>
-        <br> *Delivery Method (ex: pill, inhaler, injection, etc.): <br>
-        <input type="text" name="medDeliveryMethod" #medDeliveryMethod>
-        <br> *Dosage of Medication: <br>
-        <input type="text" name="dose" #dose>
-        <br> *Dosage Units: <br>
-        <input type="text" name="dosageUnits" #dosageUnits>
+        <input type="text" formControlName="medName" />
+        <br>*Delivery Method: <br>
+        <input type="text" formControlName="deliveryMethod" />
+        <br>*Dosage: <br>
+        <input type="text" formControlName="dose" />
+        <br>*Dosage Units: <br>
+        <input type="text" formControlName="dosageUnits" /><br>
+        <button class="addbtn" type="submit">Add Medication</button>
     </form>
 
-    <!-- once button is clicked, then the addMed method should receive the user entered values-->
-    <button class='addbtn' type="button" form="enterMed"
-        (click)="addMed(medName.value, medDeliveryMethod.value, dose.value, dosageUnits.value)">Add Medication</button>
-
+    <!-- The remove feature is defined as an input of type "button". "value" means the name of the button -->
     <input class="deletebtn" type="button" value="Remove Medication" (click)="removeBtnClicked()">
 </div>
 

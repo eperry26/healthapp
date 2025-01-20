@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 // import { Medication } from '../meds.interface';
 import { Medication, MedService } from '../meds.service';
 
@@ -9,31 +10,23 @@ import { Medication, MedService } from '../meds.service';
 })
 export class MedSectionComponent implements OnInit {
 
-  constructor(private medService: MedService) {}
+  medForm = new FormGroup({
+
+    medName: new FormControl('', {nonNullable: true}),
+    deliveryMethod: new FormControl('', {nonNullable: true}),
+    dose: new FormControl('', {nonNullable: true}),
+    dosageUnits: new FormControl('', {nonNullable: true}),
+
+  })
+
+  constructor(private medService: MedService,
+  ) {}
 
 
-  ngOnInit(): void {
+
+  ngOnInit(): void { //initialize UI with data, if user entered data previously
     this.fetchMeds()
-    // this.medList = [
-    //   {
-    //     medName: 'Prozac',
-    //     medDeliveryMethod: 'Pill',
-    //     dose: '10',
-    //     dosageUnits: 'mg',
-    //   },
-    //   {
-    //     medName: 'Metformin',
-    //     medDeliveryMethod: 'Pill',
-    //     dose: '850',
-    //     dosageUnits: 'mg',
-    //   },
-    //   {
-    //     medName: 'Albuterol',
-    //     medDeliveryMethod: 'Inhaler',
-    //     dose: '110',
-    //     dosageUnits: 'mcg'
-    //   },
-    // ];
+
   }
 
   // ngOnChanges(changes: SimpleChanges): void {
@@ -50,8 +43,13 @@ fetchMeds() {
 
   medList: any = [];
 
+  handleSubmit() {
+    return this.addMed(this.medForm.value.medName, this.medForm.value.deliveryMethod, this.medForm.value.dose, this.medForm.value.dosageUnits)
+  }
 
-  addMed(medName: string, medDeliveryMethod: string = '', dose: string = '', dosageUnits: string ='') {// method to add a new medication
+  // after this function runs, the form should clear
+  // need to add input validation to make sure necessary values are inputted
+  addMed(medName: string = '', medDeliveryMethod: string = '', dose: string = '', dosageUnits: string ='') {// method to add a new medication
     // use .push function
     const newMed = {
       id: this.medList.length + 1,
@@ -62,16 +60,17 @@ fetchMeds() {
     };
 
     this.medService.createMed(newMed).subscribe(res => {
-      this.fetchMeds()
+      this.fetchMeds() // get an updated list from backend to be displayed
     })
     console.log('User entered: ',newMed);
+    this.medForm.reset(); // clears the input fields of the form, ready for another med to be added.
 
 
     // this.medList.push(newMed);
     // return this.medList;
   };
 
-  medDone(id: number, medCheck: HTMLInputElement) {
+  medDone(id: number, medCheck: HTMLInputElement) { //if med has been checked off
       return this.medList.push(this.medList.splice(id, 1)[0]);
 
   };

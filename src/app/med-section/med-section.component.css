@@ -10,13 +10,14 @@ h3 {
 
 .container {
     outline: auto;
-    outline-style: dotted;
+    outline-style: groove;
     font-size: larger;
     padding-bottom: 3%;
 }
 
 .addbtn {
     background-color: aquamarine;
+    margin-top: 15px; /*so that button isn't touching the field above it*/
 }
 
 .deletebtn {
@@ -26,7 +27,7 @@ h3 {
 
 .containerRem {
     outline: auto;
-    outline-style: dotted;
+    outline-style: solid;
     font-size: larger;
     padding-bottom: 3%;
 }
