@@ -1,0 +1,15 @@
+<h3>Select Medication to Edit</h3>
+    <table>
+        <!-- first header will be blank for the checkboxes, make it cleaner -->
+        <th> </th>
+        <th>Medication</th>
+        <th>Type</th>
+        <th>Dosage</th>
+        <tr *ngFor="let med of medList; let i=index">
+            <input type="checkbox" name="medCheck">
+            <td> {{ med.medName }}</td>
+            <td>{{ med.medDeliveryMethod }}</td>
+            <td>{{ med.dose }} {{med.dosageUnits}}</td>
+        </tr>
+    </table>
+    <button class="backBtn" (click)="backBtnClicked()">Go Back to Reminders</button>

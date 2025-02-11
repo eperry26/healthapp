@@ -1,5 +1,6 @@
-import { Component, OnChanges, OnInit, SimpleChanges, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { EditMedsComponent } from '../edit-meds/edit-meds.component';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 // import { Medication } from '../meds.interface';
 import { Medication, MedService } from '../meds.service';
 
@@ -10,9 +11,18 @@ import { Medication, MedService } from '../meds.service';
 })
 export class MedSectionComponent implements OnInit {
 
+  goBackHandler(backClicked: boolean) {
+    this.remBtnClicked = backClicked
+  }
+
+  
+  remBtnClicked = false
+
+
+
   medForm = new FormGroup({
 
-    medName: new FormControl('', {nonNullable: true}),
+    medName: new FormControl('', {nonNullable: true},),
     deliveryMethod: new FormControl('', {nonNullable: true}),
     dose: new FormControl('', {nonNullable: true}),
     dosageUnits: new FormControl('', {nonNullable: true}),
@@ -39,7 +49,7 @@ fetchMeds() {
   })
 }
 
-  remBtnClicked: boolean = false;
+  
 
   medList: any = [];
 
@@ -75,13 +85,13 @@ fetchMeds() {
 
   };
 
-  removeBtnClicked() { //go to different template
+  editBtnClicked() { //go to different template
     this.remBtnClicked = true;
     return this.remBtnClicked;
   };
 
 
-
+  // **move this to edit-meds.component.ts
   removeMed(id: number) { //removing medication from list
     console.log('delete func called');
     this.medService.deleteMed(id).subscribe(res => {
@@ -89,9 +99,9 @@ fetchMeds() {
     })
   };
 
-  backBtnClicked() { //goes back to medlist page
-    this.remBtnClicked = false;
-    return this.remBtnClicked;
-  };
+  // backBtnClicked() { //goes back to medlist page
+  //   this.remBtnClicked = false;
+  //   return this.remBtnClicked;
+  // };
 
 }

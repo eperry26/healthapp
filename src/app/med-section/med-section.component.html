@@ -2,7 +2,8 @@
 <div *ngIf="remBtnClicked==false" class="container">
     <h3>Medication Reminders</h3>
     <table>
-        <th>Check</th>
+        <!-- first header will be blank for the checkboxes, make it cleaner -->
+        <th> </th>
         <th>Medication</th>
         <th>Type</th>
         <th>Dosage</th>
@@ -14,6 +15,7 @@
         </tr>
     </table>
 
+    <!-- Adding a medication to list -->
     <form
     [formGroup]="medForm"
     (ngSubmit)="handleSubmit()">
@@ -30,16 +32,33 @@
     </form>
 
     <!-- The remove feature is defined as an input of type "button". "value" means the name of the button -->
-    <input class="deletebtn" type="button" value="Remove Medication" (click)="removeBtnClicked()">
+    <input class="deletebtn" type="button" value="Edit Medication" (click)="editBtnClicked()">
 </div>
 
-<div class="containerRem" *ngIf="remBtnClicked">
-    <h3>Select Medications to Remove</h3>
+<!-- Go to edit-meds component when this button is clicked -->
+<div class="container" *ngIf="remBtnClicked">
+    <!-- <h3>Select Medications to Remove</h3>
     <table>
         <th>Medication</th>
         <tr *ngFor="let med of medList; let i=index">
             <td> {{ med.medName }} <button class="deletebtn" (click)="removeMed(med.id)">Remove</button></td>
         </tr>
+    </table> -->
+    <!-- <h3>Select Medication to Edit</h3>
+    <table> -->
+        <!-- first header will be blank for the checkboxes, make it cleaner -->
+        <!-- <th> </th>
+        <th>Medication</th>
+        <th>Type</th>
+        <th>Dosage</th>
+        <tr *ngFor="let med of medList; let i=index">
+            <input type="checkbox" name="medCheck">
+            <td> {{ med.medName }}</td>
+            <td>{{ med.medDeliveryMethod }}</td>
+            <td>{{ med.dose }} {{med.dosageUnits}}</td>
+        </tr>
     </table>
-    <button class="backBtn" (click)="backBtnClicked()">Go Back to Reminders</button>
+    <button class="backBtn" (click)="backBtnClicked()">Go Back to Reminders</button> -->
+    <app-edit-meds (goBack)="goBackHandler($event)"></app-edit-meds>
+
 </div>

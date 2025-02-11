@@ -7,12 +7,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MedSectionComponent } from './med-section/med-section.component';
+import { EditMedsComponent } from './edit-meds/edit-meds.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MedSectionComponent
+    MedSectionComponent,
+    EditMedsComponent
   ],
   imports: [
     BrowserModule,
