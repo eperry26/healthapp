@@ -1,15 +1,58 @@
-<h3>Select Medication to Edit</h3>
+<!-- ngIf  -->
+<div>
+    <h3>Select Medication to Edit/Delete</h3>
     <table>
         <!-- first header will be blank for the checkboxes, make it cleaner -->
-        <th> </th>
+        <!-- <th> </th> -->
         <th>Medication</th>
         <th>Type</th>
         <th>Dosage</th>
         <tr *ngFor="let med of medList; let i=index">
-            <input type="checkbox" name="medCheck">
-            <td> {{ med.medName }}</td>
+            <!-- <input type="checkbox" name="medCheck"> -->
+             <!-- once button is clicked, a pop-up window appears, will send the selected
+              med data to a different component? -->
+            <td> <button class="row" (click)="openPopup(i)" data-bs-toggle="modal" data-bs-target="#myModal">{{ med.medName }}</button></td>
             <td>{{ med.medDeliveryMethod }}</td>
             <td>{{ med.dose }} {{med.dosageUnits}}</td>
+            <button class="btn btn-danger" (click)="removeMed(med.id)">x</button>
         </tr>
     </table>
-    <button class="backBtn" (click)="backBtnClicked()">Go Back to Reminders</button>
+    <button class="btn btn-info" (click)="backBtnClicked()">Go Back to Reminders</button>
+</div>
+
+<div class="modal" id="popUp">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <!-- displays the name of med selected -->
+          <h4 class="modal-title">Update or Delete {{this.modalHeader}}</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closePopup()"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+            <form
+            [formGroup]="medForm"
+            (ngSubmit)="handleSubmit()">
+            <!-- ngSubmit will call the handleSubmit() method when the savebtn is clicked (when the form is submitted) -->
+                *Medication Name: <br>
+                <input type="text" formControlName="medName" />
+                <br>*Delivery Method: <br>
+                <input type="text" formControlName="deliveryMethod" />
+                <br>*Dosage: <br>
+                <input type="text" formControlName="dose" />
+                <br>*Dosage Units: <br>
+                <input type="text" formControlName="dosageUnits" /><br>
+            </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closePopup()">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>

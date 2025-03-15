@@ -20,8 +20,8 @@ h3 {
     margin-top: 15px; /*so that button isn't touching the field above it*/
 }
 
-.deletebtn {
-    color: red;
+.editbtn {
+    /* color: red; */
     float: right;
 }
 

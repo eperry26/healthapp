@@ -1,0 +1,43 @@
+/* .container {
+    outline: auto;
+    outline-style: groove;
+    font-size: larger;
+    padding-bottom: 3%;
+} */
+
+table {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3 {
+    text-align: center;
+}
+
+.deleteBtn {
+    color: red;
+    border: none;
+    background-color: transparent;
+}
+
+.deleteBtn:hover {
+    background-color: red;
+    color: white;
+}
+
+.row {
+    background-color: transparent;
+    border: none;
+}
+
+.row:hover {
+    background-color: rgb(255, 127, 208);
+    color: white;
+}
+
+.modal {
+    outline: auto;
+    outline-style: solid;
+    align-self: center;
+}

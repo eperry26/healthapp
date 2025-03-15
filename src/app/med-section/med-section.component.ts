@@ -12,11 +12,11 @@ import { Medication, MedService } from '../meds.service';
 export class MedSectionComponent implements OnInit {
 
   goBackHandler(backClicked: boolean) {
-    this.remBtnClicked = backClicked
+    this.isEdit = backClicked
   }
 
   
-  remBtnClicked = false
+  isEdit = false
 
 
 
@@ -49,7 +49,7 @@ fetchMeds() {
   })
 }
 
-  
+
 
   medList: any = [];
 
@@ -86,22 +86,19 @@ fetchMeds() {
   };
 
   editBtnClicked() { //go to different template
-    this.remBtnClicked = true;
-    return this.remBtnClicked;
+    this.isEdit = true;
+    return this.isEdit;
   };
 
 
   // **move this to edit-meds.component.ts
-  removeMed(id: number) { //removing medication from list
-    console.log('delete func called');
-    this.medService.deleteMed(id).subscribe(res => {
-      this.fetchMeds()
-    })
-  };
-
-  // backBtnClicked() { //goes back to medlist page
-  //   this.remBtnClicked = false;
-  //   return this.remBtnClicked;
+  // removeMed(id: number) { //removing medication from list
+  //   console.log('delete func called');
+  //   this.medService.deleteMed(id).subscribe(res => {
+  //     this.fetchMeds()
+  //   })
   // };
+
+
 
 }
