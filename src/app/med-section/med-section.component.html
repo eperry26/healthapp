@@ -7,7 +7,7 @@
         <th>Medication</th>
         <th>Type</th>
         <th>Dosage</th>
-        <tr *ngFor="let med of medList; let i=index">
+        <tr *ngFor="let med of medList; let i=index" style="margin-bottom: 10px;">
             <input type="checkbox" name="medCheck" #medCheck (click)="medDone(i,medCheck)">
             <td> {{ med.medName }}</td>
             <td>{{ med.medDeliveryMethod }}</td>
@@ -29,11 +29,12 @@
         <br>*Dosage Units: <br>
         <input type="text" formControlName="dosageUnits" /><br>
         <!-- Future: enable button once all fields are filled -->
-        <button class="btn btn-success" type="submit">Add Medication</button>
+        <button class="btn btn-success" style="margin-top: 15px;" type="submit">Add Medication</button>
+        <!-- The remove feature is defined as an input of type "button". "value" means the name of the button -->
+    <input class="btn btn-secondary" style="float: right; margin-top: 15px;" type="button" value="Edit Medication" (click)="editBtnClicked()">
     </form>
 
-    <!-- The remove feature is defined as an input of type "button". "value" means the name of the button -->
-    <input class="btn btn-secondary" type="button" value="Edit Medication" (click)="editBtnClicked()">
+
 </div>
 
 <!-- Go to edit-meds component when this button is clicked -->

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MedSectionComponent } from './med-section/med-section.component';
 
 @Component({
   selector: 'app-root',

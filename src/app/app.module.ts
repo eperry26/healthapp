@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { MedSectionComponent } from './med-section/med-section.component';
 import { EditMedsComponent } from './edit-meds/edit-meds.component';
-import { UpdatePopupComponent } from './update-popup/update-popup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -17,7 +16,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     MedSectionComponent,
     EditMedsComponent,
-    UpdatePopupComponent
   ],
   imports: [
     BrowserModule,

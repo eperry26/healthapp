@@ -1,20 +1,20 @@
 <!-- ngIf  -->
 <div>
-    <h3>Select Medication to Edit/Delete</h3>
+    <h3>Edit or Delete Medication</h3>
     <table>
         <!-- first header will be blank for the checkboxes, make it cleaner -->
         <!-- <th> </th> -->
         <th>Medication</th>
         <th>Type</th>
         <th>Dosage</th>
-        <tr *ngFor="let med of medList; let i=index">
+        <tr *ngFor="let med of medList; let i=index" >
             <!-- <input type="checkbox" name="medCheck"> -->
              <!-- once button is clicked, a pop-up window appears, will send the selected
               med data to a different component? -->
             <td> <button class="row" (click)="openPopup(i)" data-bs-toggle="modal" data-bs-target="#myModal">{{ med.medName }}</button></td>
             <td>{{ med.medDeliveryMethod }}</td>
             <td>{{ med.dose }} {{med.dosageUnits}}</td>
-            <button class="btn btn-danger" (click)="removeMed(med.id)">x</button>
+            <button class="btn btn-danger" style="margin-bottom: 10px;" (click)="removeMed(med.id)">Delete</button>
         </tr>
     </table>
     <button class="btn btn-info" (click)="backBtnClicked()">Go Back to Reminders</button>
@@ -27,7 +27,7 @@
         <!-- Modal Header -->
         <div class="modal-header">
             <!-- displays the name of med selected -->
-          <h4 class="modal-title">Update or Delete {{this.modalHeader}}</h4>
+          <h4 class="modal-title">Update {{this.modalHeader}}</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closePopup()"></button>
         </div>
 
@@ -45,6 +45,7 @@
                 <input type="text" formControlName="dose" />
                 <br>*Dosage Units: <br>
                 <input type="text" formControlName="dosageUnits" /><br>
+                <button class="btn btn-success" style="margin-top: 15px;" type="submit" >Update</button>
             </form>
         </div>
 

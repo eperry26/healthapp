@@ -15,7 +15,7 @@ export class MedSectionComponent implements OnInit {
     this.isEdit = backClicked
   }
 
-  
+
   isEdit = false
 
 

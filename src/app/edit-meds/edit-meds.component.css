@@ -32,7 +32,7 @@ h3 {
 }
 
 .row:hover {
-    background-color: rgb(255, 127, 208);
+    background-color: rgb(7, 176, 7);
     color: white;
 }
 
@@ -41,3 +41,4 @@ h3 {
     outline-style: solid;
     align-self: center;
 }
+
