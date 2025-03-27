@@ -39,7 +39,7 @@
 
 <!-- Go to edit-meds component when this button is clicked -->
 <div class="container" *ngIf="isEdit">
-
-    <app-edit-meds (goBack)="goBackHandler($event)"></app-edit-meds>
+<!-- Do I need 2 functions to handle 2 event emitters? Or can I use @Input -->
+    <app-edit-meds (goBack)="goBackHandler($event)" ></app-edit-meds>
 
 </div>

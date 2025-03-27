@@ -13,7 +13,7 @@ export class EditMedsComponent implements OnInit {
   backBtn: boolean = false;
 
   @Output() goBack: EventEmitter<boolean> = new EventEmitter<boolean>(); // declare event emitter property
-  @Output() newList: EventEmitter<any> = new EventEmitter<any>();
+  // @Output() newList: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private medService: MedService,
     private modalService: NgbModal
@@ -84,10 +84,10 @@ export class EditMedsComponent implements OnInit {
     })
     console.log(this.medList)
     // emit updated list to other components
-    return this.newList.emit(this.medList)
+    // return this.newList.emit(this.medList)
   }
 
-  closePopup() {
+  closePopup() { //function to change display of pop-up and have it go away
     const medPopUpDiv = document.getElementById('popUp')
     if(medPopUpDiv != null) {
       medPopUpDiv.style.display = 'none';
@@ -100,7 +100,7 @@ export class EditMedsComponent implements OnInit {
       this.fetchMeds()
     })
     // emit updated list to other components
-    return this.newList.emit(this.medList)
+    // return this.newList.emit(this.medList)
 
   };
 

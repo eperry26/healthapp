@@ -1,0 +1,18 @@
+{
+  "name": "healthapp-backend",
+  "version": "1.0.0",
+  "description": "backend for health-app",
+  "main": "db.json",
+  "scripts": {
+    "test": "npm start",
+    "json:server": "json-server --watch db.json",
+    "start": "node db.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}

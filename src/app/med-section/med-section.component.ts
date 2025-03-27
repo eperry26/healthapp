@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges, Input } from '@angular/core';
 import { EditMedsComponent } from '../edit-meds/edit-meds.component';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 // import { Medication } from '../meds.interface';
@@ -12,8 +12,11 @@ import { Medication, MedService } from '../meds.service';
 export class MedSectionComponent implements OnInit {
 
   goBackHandler(backClicked: boolean) {
-    this.isEdit = backClicked
+    this.isEdit = backClicked //boolean to display main page layout
+    this.fetchMeds() // display updated list
   }
+
+
 
 
   isEdit = false
@@ -80,8 +83,10 @@ fetchMeds() {
     // return this.medList;
   };
 
-  medDone(id: number, medCheck: HTMLInputElement) { //if med has been checked off
-      return this.medList.push(this.medList.splice(id, 1)[0]);
+  medDone(idx: number, medCheck: HTMLInputElement) { //if med has been checked off
+      return this.medList.push(this.medList.splice(idx, 1)[0]);
+      // change id number so that checked off med is at the end of the list in the backend. Might need to add a variable for 'checked: true of false'
+      
 
   };
 

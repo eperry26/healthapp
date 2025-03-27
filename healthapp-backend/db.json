@@ -1,0 +1,32 @@
+{
+  "medication": [
+    {
+      "id": 1,
+      "medName": "Prozac",
+      "medDeliveryMethod": "Pill",
+      "dose": "75",
+      "dosageUnits": "mg"
+    },
+    {
+      "id": 2,
+      "medName": "Metformin",
+      "medDeliveryMethod": "Pill",
+      "dose": 850,
+      "dosageUnits": "mg"
+    },
+    {
+      "id": 3,
+      "medName": "med1",
+      "medDeliveryMethod": "pill",
+      "dose": "123",
+      "dosageUnits": "mg"
+    },
+    {
+      "id": 4,
+      "medName": "med2",
+      "medDeliveryMethod": "inhaler",
+      "dose": "700",
+      "dosageUnits": "op"
+    }
+  ]
+}

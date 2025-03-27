@@ -9,8 +9,7 @@
         <th>Dosage</th>
         <tr *ngFor="let med of medList; let i=index" >
             <!-- <input type="checkbox" name="medCheck"> -->
-             <!-- once button is clicked, a pop-up window appears, will send the selected
-              med data to a different component? -->
+             <!-- once button is clicked, a pop-up window appears-->
             <td> <button class="row" (click)="openPopup(i)" data-bs-toggle="modal" data-bs-target="#myModal">{{ med.medName }}</button></td>
             <td>{{ med.medDeliveryMethod }}</td>
             <td>{{ med.dose }} {{med.dosageUnits}}</td>
@@ -45,14 +44,15 @@
                 <input type="text" formControlName="dose" />
                 <br>*Dosage Units: <br>
                 <input type="text" formControlName="dosageUnits" /><br>
-                <button class="btn btn-success" style="margin-top: 15px;" type="submit" >Update</button>
+                <!-- Pop up window closes once submit is clicked -->
+                <button class="btn btn-success" style="margin-top: 15px; float: right;" type="submit" (click)="closePopup()">Update</button>
             </form>
         </div>
 
         <!-- Modal footer -->
-        <div class="modal-footer">
+        <!-- <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closePopup()">Close</button>
-        </div>
+        </div> -->
 
       </div>
     </div>
